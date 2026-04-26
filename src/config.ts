@@ -4,7 +4,7 @@ export const config = {
   webhookUrl: process.env.WEBHOOK_URL ?? '',
   webhookSecret: process.env.WEBHOOK_SECRET ?? '',
   databasePath: process.env.DATABASE_PATH ?? './agents.db',
-  port: parseInt(process.env.PORT ?? '3000', 10),
+  port: parseInt(process.env.PORT ?? '8080', 10),
   nodeEnv: process.env.NODE_ENV ?? 'development',
 
   models: {

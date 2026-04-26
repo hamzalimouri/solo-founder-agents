@@ -4,24 +4,46 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsx watch src/index.ts",
+    "dev:server": "tsx watch src/index.ts",
+    "dev:client": "vite",
+    "dev": "concurrently \"npm:dev:server\" \"npm:dev:client\"",
+    "build:server": "tsc",
+    "build:client": "vite build",
+    "build": "npm run build:server && npm run build:client",
     "start": "node dist/index.js",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.54.0",
+    "@fastify/cors": "^8.5.0",
+    "@fastify/static": "^6.12.0",
     "better-sqlite3": "^11.10.0",
     "drizzle-orm": "^0.43.1",
     "fastify": "^4.28.1",
-    "grammy": "^1.36.3"
+    "grammy": "^1.36.3",
+    "jose": "^5.9.6",
+    "lucide-react": "^1.11.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.14.2",
+    "recharts": "^3.8.1",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^22.15.3",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.2",
     "drizzle-kit": "^0.31.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
     "tsx": "^4.19.4",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vite": "^5.4.11"
   }
 }
